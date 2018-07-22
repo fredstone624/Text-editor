@@ -72,7 +72,7 @@
             this.butSelectFile.TabIndex = 4;
             this.butSelectFile.Text = "Выбрать\r\n";
             this.butSelectFile.UseVisualStyleBackColor = true;
-            this.butSelectFile.Click += new System.EventHandler(this.butSelectFile_Click);
+            this.butSelectFile.Click += new System.EventHandler(this.ButSelectFile_Click);
             // 
             // textFont
             // 
