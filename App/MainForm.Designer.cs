@@ -28,9 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.textSelectFile = new System.Windows.Forms.Label();
-            this.butOpenFile = new System.Windows.Forms.Button();
+            this.textFilePath = new System.Windows.Forms.TextBox();
             this.butSelectFile = new System.Windows.Forms.Button();
+            this.butOpenFile = new System.Windows.Forms.Button();
             this.textFont = new System.Windows.Forms.Label();
             this.numFont = new System.Windows.Forms.NumericUpDown();
             this.textContent = new System.Windows.Forms.TextBox();
@@ -38,7 +40,6 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.textSymbol = new System.Windows.Forms.ToolStripStatusLabel();
             this.textCountSymbol = new System.Windows.Forms.ToolStripStatusLabel();
-            this.textFilePath = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.numFont)).BeginInit();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -53,15 +54,15 @@
             this.textSelectFile.TabIndex = 0;
             this.textSelectFile.Text = "Выберите файл";
             // 
-            // butOpenFile
+            // textFilePath
             // 
-            this.butOpenFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.butOpenFile.Location = new System.Drawing.Point(648, 19);
-            this.butOpenFile.Name = "butOpenFile";
-            this.butOpenFile.Size = new System.Drawing.Size(75, 23);
-            this.butOpenFile.TabIndex = 3;
-            this.butOpenFile.Text = "Открыть";
-            this.butOpenFile.UseVisualStyleBackColor = true;
+            this.textFilePath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textFilePath.Location = new System.Drawing.Point(119, 21);
+            this.textFilePath.MaxLength = 300;
+            this.textFilePath.Name = "textFilePath";
+            this.textFilePath.Size = new System.Drawing.Size(442, 20);
+            this.textFilePath.TabIndex = 0;
             // 
             // butSelectFile
             // 
@@ -72,7 +73,16 @@
             this.butSelectFile.TabIndex = 4;
             this.butSelectFile.Text = "Выбрать\r\n";
             this.butSelectFile.UseVisualStyleBackColor = true;
-            this.butSelectFile.Click += new System.EventHandler(this.ButSelectFile_Click);
+            // 
+            // butOpenFile
+            // 
+            this.butOpenFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.butOpenFile.Location = new System.Drawing.Point(648, 19);
+            this.butOpenFile.Name = "butOpenFile";
+            this.butOpenFile.Size = new System.Drawing.Size(75, 23);
+            this.butOpenFile.TabIndex = 3;
+            this.butOpenFile.Text = "Открыть";
+            this.butOpenFile.UseVisualStyleBackColor = true;
             // 
             // textFont
             // 
@@ -150,16 +160,6 @@
             this.textCountSymbol.Name = "textCountSymbol";
             this.textCountSymbol.Size = new System.Drawing.Size(0, 17);
             // 
-            // textFilePath
-            // 
-            this.textFilePath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textFilePath.Location = new System.Drawing.Point(119, 21);
-            this.textFilePath.MaxLength = 300;
-            this.textFilePath.Name = "textFilePath";
-            this.textFilePath.Size = new System.Drawing.Size(442, 20);
-            this.textFilePath.TabIndex = 0;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -176,6 +176,7 @@
             this.Controls.Add(this.butOpenFile);
             this.Controls.Add(this.textSelectFile);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(400, 400);
             this.Name = "MainForm";
             this.Text = "Текстовый редактор";

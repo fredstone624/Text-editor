@@ -18,7 +18,6 @@ namespace App
             MainForm form = new MainForm();
             MessageService service = new MessageService();
             FileManager manager = new FileManager();
-
             MainPresenter presenter = new MainPresenter(form, manager, service);
 
             Application.Run(form);

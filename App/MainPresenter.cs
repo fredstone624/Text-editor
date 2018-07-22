@@ -41,7 +41,6 @@ namespace App
                 }
 
                 _currentPath = path;
-
                 _view.Content = _manager.GetContent(path);
                 _view.SetSymbolCount(_manager.GetSymbolCount(_view.Content));
             }
