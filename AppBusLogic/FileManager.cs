@@ -11,6 +11,7 @@ namespace AppBusLogic
         void SaveContent(string path, string contents, Encoding encoding);
         void SaveContent(string path, string contents);
         int GetSymbolCount(string contents);
+        int GetWordCount(string contents);
     }
 
     public class FileManager : IFileManager
@@ -50,6 +51,11 @@ namespace AppBusLogic
         public int GetSymbolCount(string contents)
         {
             return contents.Length;
+        }
+
+        public int GetWordCount(string contents)
+        {
+            return contents.Split(new[] { ' ', '\r' }).Length;
         }
     }
 }

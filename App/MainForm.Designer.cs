@@ -39,7 +39,9 @@
             this.butSaveFile = new System.Windows.Forms.Button();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.textSymbol = new System.Windows.Forms.ToolStripStatusLabel();
-            this.textCountSymbol = new System.Windows.Forms.ToolStripStatusLabel();
+            this.textSymbolCount = new System.Windows.Forms.ToolStripStatusLabel();
+            this.textWord = new System.Windows.Forms.ToolStripStatusLabel();
+            this.textWordCount = new System.Windows.Forms.ToolStripStatusLabel();
             ((System.ComponentModel.ISupportInitialize)(this.numFont)).BeginInit();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -124,6 +126,7 @@
             this.textContent.Location = new System.Drawing.Point(15, 93);
             this.textContent.Multiline = true;
             this.textContent.Name = "textContent";
+            this.textContent.ReadOnly = true;
             this.textContent.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.textContent.Size = new System.Drawing.Size(718, 278);
             this.textContent.TabIndex = 7;
@@ -142,7 +145,9 @@
             // 
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.textSymbol,
-            this.textCountSymbol});
+            this.textSymbolCount,
+            this.textWord,
+            this.textWordCount});
             this.statusStrip.Location = new System.Drawing.Point(0, 412);
             this.statusStrip.Name = "statusStrip";
             this.statusStrip.Size = new System.Drawing.Size(746, 22);
@@ -155,10 +160,21 @@
             this.textSymbol.Size = new System.Drawing.Size(107, 17);
             this.textSymbol.Text = "Кол-во символов:";
             // 
-            // textCountSymbol
+            // textSymbolCount
             // 
-            this.textCountSymbol.Name = "textCountSymbol";
-            this.textCountSymbol.Size = new System.Drawing.Size(0, 17);
+            this.textSymbolCount.Name = "textSymbolCount";
+            this.textSymbolCount.Size = new System.Drawing.Size(0, 17);
+            // 
+            // textWord
+            // 
+            this.textWord.Name = "textWord";
+            this.textWord.Size = new System.Drawing.Size(78, 17);
+            this.textWord.Text = "Кол-во слов:";
+            // 
+            // textWordCount
+            // 
+            this.textWordCount.Name = "textWordCount";
+            this.textWordCount.Size = new System.Drawing.Size(0, 17);
             // 
             // MainForm
             // 
@@ -199,7 +215,9 @@
         private System.Windows.Forms.Button butSaveFile;
         private System.Windows.Forms.StatusStrip statusStrip;
         private System.Windows.Forms.ToolStripStatusLabel textSymbol;
-        private System.Windows.Forms.ToolStripStatusLabel textCountSymbol;
+        private System.Windows.Forms.ToolStripStatusLabel textSymbolCount;
         private System.Windows.Forms.TextBox textFilePath;
+        private System.Windows.Forms.ToolStripStatusLabel textWord;
+        private System.Windows.Forms.ToolStripStatusLabel textWordCount;
     }
 }

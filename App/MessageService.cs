@@ -7,6 +7,7 @@ namespace App
         void ShowMessage(string message);
         void ShowExclamation(string exclamation);
         void ShowError(string error);
+        bool SaveChanges(string changes);
     }
 
     public class MessageService : IMessageService
@@ -24,6 +25,12 @@ namespace App
         public void ShowError(string error)
         {
             MessageBox.Show(error, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        public bool SaveChanges(string changes)
+        {
+            return (MessageBox.Show(changes, "Закрытие",
+                MessageBoxButtons.YesNo) == DialogResult.Yes);
         }
     }
 }
