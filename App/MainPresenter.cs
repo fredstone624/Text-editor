@@ -5,63 +5,61 @@ namespace App
 {
     public class MainPresenter
     {
-        private readonly IMainForm _view;
-        private readonly IFileManager _manager;
-        private readonly IMessageService _service;
-        private string _currentPath;
+        private readonly IMainForm view;
+        private readonly IFileManager manager;
+        private readonly IMessageService service;
+        private string currentPath;
 
         public MainPresenter(IMainForm view, IFileManager manager, IMessageService service)
         {
-            _view = view;
-            _manager = manager;
-            _service = service;
-            
-            _view.SetSymbolCount(0);
+            this.view = view;
+            this.manager = manager;
+            this.service = service;
+            this.view.SetSymbolCount(0);
 
-            _view.ContentChanged += _view_ContentChanged;
-            _view.FileOpenClick += _view_FileOpenClick;
-            _view.FileSaveClick += _view_FileSaveClick;
+            this.view.FileOpenClick += View_FileOpenClick;
+            this.view.FileSaveClick += View_FileSaveClick;
+            this.view.ContentChanged += View_ContentChanged;
         }
 
-        private void _view_ContentChanged(object sender, System.EventArgs e)
-        {
-            _view.SetSymbolCount(_manager.GetSymbolCount(_view.Content));
-        }
-
-        private void _view_FileOpenClick(object sender, System.EventArgs e)
+        private void View_FileOpenClick(object sender, System.EventArgs e)
         {
             try
             {
-                string path = _view.Path;
+                string path = view.Path;
 
-                if (!_manager.IsExist(path))
+                if (!manager.IsExist(path))
                 {
-                    _service.ShowExclamation("Выбраного файла не существует.");
+                    service.ShowExclamation("Выбраного файла не существует.");
                     return;
                 }
 
-                _currentPath = path;
-                _view.Content = _manager.GetContent(path);
-                _view.SetSymbolCount(_manager.GetSymbolCount(_view.Content));
+                currentPath = path;
+                view.Content = manager.GetContent(path);
+                view.SetSymbolCount(manager.GetSymbolCount(view.Content));
             }
             catch(Exception ex)
             {
-                _service.ShowError(ex.Message);
+                service.ShowError(ex.Message);
             }
         }
 
-        private void _view_FileSaveClick(object sender, EventArgs e)
+        private void View_FileSaveClick(object sender, EventArgs e)
         {
             try
             {
-                _manager.SaveContent(_currentPath, _view.Content);
-
-                _service.ShowMessage("Файл успешно сохранён.");
+                manager.SaveContent(currentPath, view.Content);
+                service.ShowMessage("Файл успешно сохранён.");
             }
             catch (Exception ex)
             {
-                _service.ShowError(ex.Message);
+                service.ShowError(ex.Message);
             }
+        }
+
+        private void View_ContentChanged(object sender, System.EventArgs e)
+        {
+            view.SetSymbolCount(manager.GetSymbolCount(view.Content));
         }
     }
 }

@@ -16,8 +16,8 @@ namespace App
             Application.SetCompatibleTextRenderingDefault(false);
 
             MainForm form = new MainForm();
-            MessageService service = new MessageService();
             FileManager manager = new FileManager();
+            MessageService service = new MessageService();
             MainPresenter presenter = new MainPresenter(form, manager, service);
 
             Application.Run(form);
